@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 /**
  * A FillInQuestion is constructed with a string that contains the answer surrounded by '_'.
@@ -17,6 +18,8 @@ public class FillInQuestion extends Question
      *      are inherited from the Question class!
      */
     
+    
+    
     /**
      * Constructs a FillInQuestion object with the specified text that contains the answer.
      * 
@@ -34,6 +37,54 @@ public class FillInQuestion extends Question
          *      superclass's default (i.e., no parameters) constructor.)
          */
         super(question);
+    
+    }
+    
+    /**
+     * This method overrides the setText method in the Question class.
+     * 
+     * Sets the question text and the answer.
+     * 
+     * @param   questionText    the text of this question including
+     *                          the answer
+     */
+    /*
+     * Use the @Override annotation when overriding a method to
+     *      help the compiler verify that you are overriding and
+     *      not overloading
+     */
+    @Override
+    public void setText(String questionText)
+    {
+        Scanner parser = new Scanner(questionText);
+        parser.useDelimiter("_");  // separates tokens in the string by "_"
+        String question = parser.next();
+        String answer = parser.next();
+        question += "_____" + parser.next();
+        
+        /*
+         * The inherited instance variables are private; they cannot
+         *      be directly accessed. We must use the mutator and
+         *      accessor methods.
+         */
+        //this.text = question;
+        //this.answer = answer
+        
+        
+        /*
+         * Use the "super" reserved word to call the setText method
+         *      as defined in the superclass (i.e., Question)
+         */
+        super.setText(question);
+        
+        /*
+         * Should use the "this" reserved word to call the setAnswer method.
+         *      If the subclass doesn't override the method, the superclass's
+         *      version of the method will be called. We don't want to use
+         *      "super" in this case because if we later override setAnswer,
+         *      the overriden method will not be called.
+         */
+        this.setAnswer(answer);
     
     }
 }
