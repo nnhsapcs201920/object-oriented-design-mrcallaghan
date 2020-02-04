@@ -25,13 +25,15 @@ public class Exam
     }
     
     public void askQuestions()
-    (
+    {
         Scanner in = new Scanner(System.in);
-        
-        for (Question q : questions)
+
+        for(Question q : questions)
         {
             System.out.println( q );
+            System.out.print("Your answer: ");
+            String response = in.nextLine();
+            System.out.println(q.checkAnswer(response));
         }
-    
-    )
+    }
 }

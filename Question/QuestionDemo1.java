@@ -20,6 +20,11 @@ public class QuestionDemo1
       q2.addChoice("Bill Gates", false);
       q2.addChoice("Steve Jobs", true);
       
+     
+      Exam exam = new Exam();
+      exam.addQuestion(q);
+      exam.addQuestion(q2);
+      exam.askQuestions();
    }
 }
 
