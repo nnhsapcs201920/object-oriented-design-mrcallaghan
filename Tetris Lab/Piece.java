@@ -201,9 +201,9 @@ public final class Piece {
             }
 
             // TODO: step 1: reflect across the line y = x
-
+            
             // TODO: step 2: mirror vertically
-
+            
             // create the rotated piece, update next, prepare for nextIteration
             Piece rotatedPiece = new Piece(rotatedPoints);
 
